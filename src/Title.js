@@ -1,29 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // import the React library
 import './index.css';
 
-class Title extends Component {
-    constructor(props){
-        super(props);
-        this.state ={
-        text :"enter a item...",
-        sample : "sample data"
+const Title = (props) => (
+    
+    <ul>
+        {
+            props.items.map((item,index)=>(
+            <li onClick={()=>props.delItem(index)} key={`listItem${index}`}> {item} </li>
+            ))
         }
-    };
+    </ul>
 
-    changeText = () => {
-        let strText = document.getElementById("box1").value;
-        this.setState({text:`${strText}`});
-    }
-    render(){       
-        return (
-            <div >
-                <p>Please enter some text</p>
-                <input id="box1" type="text" defaultValue={this.state.text} onChange={this.changeText}></input>
-                <button>Submit</button>
-            </div>
-        )
-    }
-
-}
+)
 export default Title;
-

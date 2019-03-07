@@ -1,20 +1,13 @@
-import React from 'react'; // import the React library
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom'; // import the ReactDOM library
 import './index.css';
-import Title from './Title';
-
-const Comp = () => {
-    return (
-        <div>
-            <h2>Jay Luo</h2>
-            <Title />
-            <ol>
-                <li>Item1</li>
-                <li>Item2</li>
-                <li>Item3</li>
-            </ol>
-        </div>
-    )
-}  
+import Comp from './Comp';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Comp />, document.getElementById('root'));
+
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
