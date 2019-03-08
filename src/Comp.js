@@ -24,21 +24,27 @@ class Comp extends Component {
         });
     }
 
-    deleteItem = (key) => {
-      console.log("Delete")
-      let newList = this.state.items.filter(item => item !== this.state.items[key]);
+    deleteItem = (idx) => {
+      console.log(`Delete ${idx}`)
+      let newList = this.state.items.filter(item => item !== this.state.items[idx]);
        this.setState({
            items:newList
        })
+    }
+
+    pressEnter = (event) => {
+        let code = event.keyCode || event.which;
+        let isEnter = code === 13? true: null; 
+        if(isEnter){this.clickBtn()}
     }
 
     render(){       
         return (
             <div >
                 <p>Please enter some text</p>
-                <input type="text" value={this.state.text} onChange={this.changeText}></input>
+                <input type="text" value={this.state.text} onChange={this.changeText} onKeyPress={this.pressEnter}></input>
                 <button onClick={this.clickBtn} >Submit</button>
-                <Title delItem={this.deleteItem} items={this.state.items}/>
+                <Title delItem={this.deleteItem} its={this.state.items} smp={this.state.sample}/>
             </div>
         )
     }

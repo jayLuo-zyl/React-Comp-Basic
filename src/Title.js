@@ -2,12 +2,12 @@ import React, { Component } from 'react'; // import the React library
 import './index.css';
 
 const Title = (props) => (
-    
     <ul>
         {
-            props.items.map((item,index)=>(
-            <li onClick={()=>props.delItem(index)} key={`listItem${index}`}> {item} </li>
-            ))
+            props.its.map((el,idx)=>(
+                    <li onClick={()=>props.delItem(idx)} key={`listItem${idx}`}> {el} </li>
+                )
+            )
         }
     </ul>
 
