@@ -7,7 +7,7 @@ class Comp extends Component {
         super(props);
         this.state ={
         text :"a item...",
-        sample : "sample data",
+        hiEveryoneStrings : [],
         items: []
         }
     };
@@ -38,13 +38,21 @@ class Comp extends Component {
         if(isEnter){this.clickBtn()}
     }
 
+    handleDataSampleButtonOnClick = ()=> {
+        //console.log("Bibibidibops")
+        let stringList = [...this.state.hiEveryoneStrings, "Hi, Everyone!"]
+        this.setState({
+            hiEveryoneStrings: stringList
+        })
+        
+    }
     render(){       
         return (
             <div >
                 <p>Please enter some text</p>
                 <input type="text" value={this.state.text} onChange={this.changeText} onKeyPress={this.pressEnter}></input>
                 <button onClick={this.clickBtn} >Submit</button>
-                <Title delItem={this.deleteItem} its={this.state.items} smp={this.state.sample}/>
+                <Title onAdd={this.handleDataSampleButtonOnClick} delItem={this.deleteItem} its={this.state.items} smp={this.state.hiEveryoneStrings}/>
             </div>
         )
     }
